@@ -1,3 +1,4 @@
+import 'package:event_management_app_ui/events_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -81,52 +82,62 @@ class _MyHomePageState extends State<MyHomePage> {
                                 )),
                           ],
                         ),
-                        Stack(
-                          children: [
-                            Container(
-                              margin: const EdgeInsets.only(
-                                top: 8,
-                                right: 6,
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (_) => const EventsPage(),
                               ),
-                              height: 36,
-                              width: 36,
-                              decoration: const BoxDecoration(
-                                color: Colors.white,
-                                shape: BoxShape.circle,
-                              ),
-                              child: const Padding(
-                                padding: EdgeInsets.all(3),
-                                child: CircleAvatar(
-                                  backgroundImage: NetworkImage(
-                                    "https://w7.pngwing.com/pngs/658/75/png-transparent-team-fortress-2-loadout-minecraft-valve-corporation-video-game-demoman-video-game-arm-weapon-thumbnail.png",
-                                  ),
+                            );
+                          },
+                          child: Stack(
+                            children: [
+                              Container(
+                                margin: const EdgeInsets.only(
+                                  top: 8,
+                                  right: 6,
                                 ),
-                              ),
-                            ),
-                            Positioned(
-                              top: 0,
-                              right: 0,
-                              child: Container(
-                                height: 18,
-                                width: 18,
-                                alignment: Alignment.center,
+                                height: 36,
+                                width: 36,
                                 decoration: const BoxDecoration(
+                                  color: Colors.white,
                                   shape: BoxShape.circle,
-                                  color: Color(
-                                    0xffff343b,
-                                  ),
                                 ),
-                                child: const Text(
-                                  "4",
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 11,
-                                    fontWeight: FontWeight.w700,
+                                child: const Padding(
+                                  padding: EdgeInsets.all(3),
+                                  child: CircleAvatar(
+                                    backgroundImage: NetworkImage(
+                                      "https://w7.pngwing.com/pngs/658/75/png-transparent-team-fortress-2-loadout-minecraft-valve-corporation-video-game-demoman-video-game-arm-weapon-thumbnail.png",
+                                    ),
                                   ),
                                 ),
                               ),
-                            ),
-                          ],
+                              Positioned(
+                                top: 0,
+                                right: 0,
+                                child: Container(
+                                  height: 18,
+                                  width: 18,
+                                  alignment: Alignment.center,
+                                  decoration: const BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color: Color(
+                                      0xffff343b,
+                                    ),
+                                  ),
+                                  child: const Text(
+                                    "4",
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 11,
+                                      fontWeight: FontWeight.w700,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ],
                     ),
