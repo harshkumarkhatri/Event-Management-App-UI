@@ -31,7 +31,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,101 +46,7 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.only(
-                      left: 20,
-                      right: 20,
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        const Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Text(
-                              "Events",
-                              style: TextStyle(
-                                color: Color(
-                                  0xffad8f1b,
-                                ),
-                                fontSize: 19,
-                                fontWeight: FontWeight.w600,
-                                height: 0.9,
-                              ),
-                            ),
-                            SizedBox(
-                              height: 12,
-                            ),
-                            Text("All Events",
-                                style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 24,
-                                  fontWeight: FontWeight.w600,
-                                  height: 0.7,
-                                )),
-                          ],
-                        ),
-                        InkWell(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (_) => const EventsPage(),
-                              ),
-                            );
-                          },
-                          child: Stack(
-                            children: [
-                              Container(
-                                margin: const EdgeInsets.only(
-                                  top: 8,
-                                  right: 6,
-                                ),
-                                height: 36,
-                                width: 36,
-                                decoration: const BoxDecoration(
-                                  color: Colors.white,
-                                  shape: BoxShape.circle,
-                                ),
-                                child: const Padding(
-                                  padding: EdgeInsets.all(3),
-                                  child: CircleAvatar(
-                                    backgroundImage: NetworkImage(
-                                      "https://w7.pngwing.com/pngs/658/75/png-transparent-team-fortress-2-loadout-minecraft-valve-corporation-video-game-demoman-video-game-arm-weapon-thumbnail.png",
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              Positioned(
-                                top: 0,
-                                right: 0,
-                                child: Container(
-                                  height: 18,
-                                  width: 18,
-                                  alignment: Alignment.center,
-                                  decoration: const BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    color: Color(
-                                      0xffff343b,
-                                    ),
-                                  ),
-                                  child: const Text(
-                                    "4",
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 11,
-                                      fontWeight: FontWeight.w700,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
+                  _buildTopSection(),
                   const SizedBox(
                     height: 36,
                   ),
@@ -195,130 +100,232 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
           ),
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: Container(
-              height: 192,
-              width: MediaQuery.of(context).size.width,
-              decoration: const BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(
-                    16,
+          _buildBottomSection(),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildTopSection() {
+    return Padding(
+      padding: const EdgeInsets.only(
+        left: 20,
+        right: 20,
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          const Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                "Events",
+                style: TextStyle(
+                  color: Color(
+                    0xffad8f1b,
                   ),
-                  topRight: Radius.circular(
-                    16,
-                  ),
+                  fontSize: 19,
+                  fontWeight: FontWeight.w600,
+                  height: 0.9,
                 ),
               ),
-              child: ClipRRect(
-                borderRadius: const BorderRadius.only(
-                  topLeft: Radius.circular(
-                    20,
-                  ),
-                  topRight: Radius.circular(
-                    20,
-                  ),
+              SizedBox(
+                height: 12,
+              ),
+              Text("All Events",
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 24,
+                    fontWeight: FontWeight.w600,
+                    height: 0.7,
+                  )),
+            ],
+          ),
+          InkWell(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (_) => const EventsPage(),
                 ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        _buildCalenderDates(
-                          "12",
-                          "Wed",
-                          showBgColor: true,
-                          showBottomCircle: true,
-                        ),
-                        const SizedBox(
-                          width: 12,
-                        ),
-                        _buildCalenderDates(
-                          "13",
-                          "Thu",
-                          showBgColor: true,
-                          showBottomCircle: false,
-                        ),
-                        const SizedBox(
-                          width: 12,
-                        ),
-                        _buildCalenderDates(
-                          "14",
-                          "Fri",
-                          showBottomCircle: true,
-                          showBgColor: false,
-                        ),
-                        const SizedBox(
-                          width: 12,
-                        ),
-                        _buildCalenderDates(
-                          "15",
-                          "Sat",
-                          showBgColor: true,
-                          showBottomCircle: true,
-                        ),
-                        const SizedBox(
-                          width: 12,
-                        ),
-                        _buildCalenderDates(
-                          "16",
-                          "Sun",
-                          showBgColor: true,
-                        ),
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 12,
-                    ),
-                    const Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 20.0),
-                      child: Divider(
-                        color: Color(
-                          0xfff3f3f3,
-                        ),
+              );
+            },
+            child: Stack(
+              children: [
+                Container(
+                  margin: const EdgeInsets.only(
+                    top: 8,
+                    right: 6,
+                  ),
+                  height: 36,
+                  width: 36,
+                  decoration: const BoxDecoration(
+                    color: Colors.white,
+                    shape: BoxShape.circle,
+                  ),
+                  child: const Padding(
+                    padding: EdgeInsets.all(3),
+                    child: CircleAvatar(
+                      backgroundImage: NetworkImage(
+                        "https://w7.pngwing.com/pngs/658/75/png-transparent-team-fortress-2-loadout-minecraft-valve-corporation-video-game-demoman-video-game-arm-weapon-thumbnail.png",
                       ),
                     ),
-                    const SizedBox(
-                      height: 10,
+                  ),
+                ),
+                Positioned(
+                  top: 0,
+                  right: 0,
+                  child: Container(
+                    height: 18,
+                    width: 18,
+                    alignment: Alignment.center,
+                    decoration: const BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Color(
+                        0xffff343b,
+                      ),
                     ),
-                    const Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(
-                          Icons.more_horiz,
-                          color: Color(
-                            0xff111111,
-                          ),
-                          size: 24,
-                        ),
-                        SizedBox(
-                          width: 8,
-                        ),
-                        Text(
-                          "Switch to monthly view",
-                          style: TextStyle(
-                            color: Color(
-                              0xffb9bbc1,
-                            ),
-                            fontSize: 13,
-                            fontWeight: FontWeight.w600,
-                            letterSpacing: 0,
-                          ),
-                        ),
-                      ],
+                    child: const Text(
+                      "4",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 11,
+                        fontWeight: FontWeight.w700,
+                      ),
                     ),
-                    const SizedBox(
-                      height: 24,
-                    ),
-                  ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildBottomSection() {
+    return Align(
+      alignment: Alignment.bottomCenter,
+      child: Container(
+        height: 192,
+        width: MediaQuery.of(context).size.width,
+        decoration: const BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(
+              16,
+            ),
+            topRight: Radius.circular(
+              16,
+            ),
+          ),
+        ),
+        child: ClipRRect(
+          borderRadius: const BorderRadius.only(
+            topLeft: Radius.circular(
+              20,
+            ),
+            topRight: Radius.circular(
+              20,
+            ),
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  _buildCalenderDates(
+                    "12",
+                    "Wed",
+                    showBgColor: true,
+                    showBottomCircle: true,
+                  ),
+                  const SizedBox(
+                    width: 12,
+                  ),
+                  _buildCalenderDates(
+                    "13",
+                    "Thu",
+                    showBgColor: true,
+                    showBottomCircle: false,
+                  ),
+                  const SizedBox(
+                    width: 12,
+                  ),
+                  _buildCalenderDates(
+                    "14",
+                    "Fri",
+                    showBottomCircle: true,
+                    showBgColor: false,
+                  ),
+                  const SizedBox(
+                    width: 12,
+                  ),
+                  _buildCalenderDates(
+                    "15",
+                    "Sat",
+                    showBgColor: true,
+                    showBottomCircle: true,
+                  ),
+                  const SizedBox(
+                    width: 12,
+                  ),
+                  _buildCalenderDates(
+                    "16",
+                    "Sun",
+                    showBgColor: true,
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 12,
+              ),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20.0),
+                child: Divider(
+                  color: Color(
+                    0xfff3f3f3,
+                  ),
                 ),
               ),
-            ),
-          )
-        ],
+              const SizedBox(
+                height: 10,
+              ),
+              const Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(
+                    Icons.more_horiz,
+                    color: Color(
+                      0xff111111,
+                    ),
+                    size: 24,
+                  ),
+                  SizedBox(
+                    width: 8,
+                  ),
+                  Text(
+                    "Switch to monthly view",
+                    style: TextStyle(
+                      color: Color(
+                        0xffb9bbc1,
+                      ),
+                      fontSize: 13,
+                      fontWeight: FontWeight.w600,
+                      letterSpacing: 0,
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 24,
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
