@@ -97,7 +97,14 @@ class EventsPage extends StatelessWidget {
               ),
             ),
           ),
-          Align(
+          _buildBottomSection(context),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildBottomSection(BuildContext context) {
+    return Align(
             alignment: Alignment.bottomCenter,
             child: Container(
               height: 280,
@@ -224,60 +231,58 @@ class EventsPage extends StatelessWidget {
                             ],
                           ),
                           const Spacer(),
-                          Container(
-                            padding: const EdgeInsets.only(
-                              right: 1,
-                            ),
-                            height: 60,
-                            width: 65,
-                            decoration: BoxDecoration(
-                              color: const Color(
-                                0xfffcd128,
-                              ),
-                              borderRadius: BorderRadius.circular(
-                                12,
-                              ),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: const Color(
-                                    0xfffcd128,
-                                  ).withOpacity(.4),
-                                  blurRadius: 10,
-                                  spreadRadius: 4,
-                                  offset: const Offset(
-                                    0,
-                                    6,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            alignment: Alignment.center,
-                            child: const Text(
-                              "Book",
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 20,
-                                fontWeight: FontWeight.w700,
-                                letterSpacing: 0,
-                                height: 0,
-                              ),
-                            ),
-                          ),
-                          // const SizedBox(
-                          //   width: 1,
-                          // ),
-                        ],
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 24,
-                    ),
+                    _buildBookButton(),
                   ],
                 ),
               ),
+              const SizedBox(
+                height: 24,
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildBookButton() {
+    return Container(
+      padding: const EdgeInsets.only(
+        right: 1,
+      ),
+      height: 60,
+      width: 65,
+      decoration: BoxDecoration(
+        color: const Color(
+          0xfffcd128,
+        ),
+        borderRadius: BorderRadius.circular(
+          12,
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: const Color(
+              0xfffcd128,
+            ).withOpacity(.4),
+            blurRadius: 10,
+            spreadRadius: 4,
+            offset: const Offset(
+              0,
+              6,
             ),
-          )
+          ),
         ],
+      ),
+      alignment: Alignment.center,
+      child: const Text(
+        "Book",
+        style: TextStyle(
+          color: Colors.black,
+          fontSize: 20,
+          fontWeight: FontWeight.w700,
+          letterSpacing: 0,
+          height: 0,
+        ),
       ),
     );
   }
